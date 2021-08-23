@@ -1,21 +1,24 @@
-neo4jmigrate
-============
+# neo4jmigrate
 
 This is a tool for applying migration scripts to neo4j database.
 
 This tool depends on having the neo4j [cypher-shell](https://neo4j.com/docs/operations-manual/current/tools/cypher-shell/) installed.
 
 [![oclif](https://img.shields.io/badge/cli-oclif-brightgreen.svg)](https://oclif.io)
-[![Version](https://img.shields.io/npm/v/neo4jmigrate.svg)](https://npmjs.org/package/@dayspringpartners/neo4jmigrate)
-[![Downloads/week](https://img.shields.io/npm/dw/neo4jmigrate.svg)](https://npmjs.org/package/@dayspringpartners/neo4jmigrate)
+[![Version](https://img.shields.io/npm/v/neo4jmigrate.svg)](https://nodei.co/npm/@dayspringpartners/neo4jmigrate)
+[![Downloads/week](https://img.shields.io/npm/dw/neo4jmigrate.svg)](https://nodei.co/npm/@dayspringpartners/neo4jmigrate)
 [![License](https://img.shields.io/npm/l/neo4jmigrate.svg)](https://github.com/dayspring-tech/neo4jmigrate/blob/master/package.json)
 
 <!-- toc -->
-* [Usage](#usage)
-* [Commands](#commands)
+
+- [Usage](#usage)
+- [Commands](#commands)
 <!-- tocstop -->
+
 # Usage
+
 <!-- usage -->
+
 ```sh-session
 $ npm install -g @dayspringpartners/neo4jmigrate
 $ nmigrate COMMAND
@@ -27,12 +30,16 @@ USAGE
   $ nmigrate COMMAND
 ...
 ```
+
 <!-- usagestop -->
+
 # Commands
+
 <!-- commands -->
-* [`nmigrate apply PATH`](#nmigrate-apply-path)
-* [`nmigrate help [COMMAND]`](#nmigrate-help-command)
-* [`nmigrate status PATH`](#nmigrate-status-path)
+
+- [`nmigrate apply PATH`](#nmigrate-apply-path)
+- [`nmigrate help [COMMAND]`](#nmigrate-help-command)
+- [`nmigrate status PATH`](#nmigrate-status-path)
 
 ## `nmigrate apply PATH`
 
@@ -86,4 +93,5 @@ OPTIONS
 ```
 
 _See code: [src/commands/status.ts](https://github.com/dayspring-tech/neo4jmigrate/blob/v1.0.1/src/commands/status.ts)_
+
 <!-- commandsstop -->
