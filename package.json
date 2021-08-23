@@ -1,7 +1,7 @@
 {
   "name": "@dayspringpartners/neo4jmigrate",
   "description": "This is a tool for applying migration scripts to neo4j database.",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "author": "Matthew Denson <mdenson@dayspring-tech.com>",
   "bin": {
     "nmigrate": "./bin/run"

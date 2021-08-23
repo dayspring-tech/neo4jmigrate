@@ -10,36 +10,33 @@ This tool depends on having the neo4j [cypher-shell](https://neo4j.com/docs/oper
 [![License](https://img.shields.io/npm/l/@dayspringpartners/neo4jmigrate.svg)](https://github.com/dayspring-tech/neo4jmigrate/blob/master/package.json)
 
 <!-- toc -->
-
-- [Usage](#usage)
-- [Commands](#commands)
+* [neo4jmigrate](#neo4jmigrate)
+* [Usage](#usage)
+* [Commands](#commands)
 <!-- tocstop -->
 
 # Usage
 
 <!-- usage -->
-
 ```sh-session
 $ npm install -g @dayspringpartners/neo4jmigrate
 $ nmigrate COMMAND
 running command...
 $ nmigrate (-v|--version|version)
-@dayspringpartners/neo4jmigrate/1.0.1 darwin-x64 node-v14.17.3
+@dayspringpartners/neo4jmigrate/1.0.2 darwin-x64 node-v14.17.3
 $ nmigrate --help [COMMAND]
 USAGE
   $ nmigrate COMMAND
 ...
 ```
-
 <!-- usagestop -->
 
 # Commands
 
 <!-- commands -->
-
-- [`nmigrate apply PATH`](#nmigrate-apply-path)
-- [`nmigrate help [COMMAND]`](#nmigrate-help-command)
-- [`nmigrate status PATH`](#nmigrate-status-path)
+* [`nmigrate apply PATH`](#nmigrate-apply-path)
+* [`nmigrate help [COMMAND]`](#nmigrate-help-command)
+* [`nmigrate status PATH`](#nmigrate-status-path)
 
 ## `nmigrate apply PATH`
 
@@ -57,7 +54,7 @@ OPTIONS
   -u, --username=username  [default: neo4j] neo4j user name
 ```
 
-_See code: [src/commands/apply.ts](https://github.com/dayspring-tech/neo4jmigrate/blob/v1.0.1/src/commands/apply.ts)_
+_See code: [src/commands/apply.ts](https://github.com/dayspring-tech/neo4jmigrate/blob/v1.0.2/src/commands/apply.ts)_
 
 ## `nmigrate help [COMMAND]`
 
@@ -92,6 +89,5 @@ OPTIONS
   -u, --username=username  [default: neo4j] neo4j user name
 ```
 
-_See code: [src/commands/status.ts](https://github.com/dayspring-tech/neo4jmigrate/blob/v1.0.1/src/commands/status.ts)_
-
+_See code: [src/commands/status.ts](https://github.com/dayspring-tech/neo4jmigrate/blob/v1.0.2/src/commands/status.ts)_
 <!-- commandsstop -->
