@@ -21,7 +21,7 @@ $ npm install -g @dayspringpartners/neo4jmigrate
 $ nmigrate COMMAND
 running command...
 $ nmigrate (-v|--version|version)
-@dayspringpartners/neo4jmigrate/1.0.0 darwin-x64 node-v14.17.3
+@dayspringpartners/neo4jmigrate/1.0.1 darwin-x64 node-v14.17.3
 $ nmigrate --help [COMMAND]
 USAGE
   $ nmigrate COMMAND
@@ -50,7 +50,7 @@ OPTIONS
   -u, --username=username  [default: neo4j] neo4j user name
 ```
 
-_See code: [src/commands/apply.ts](https://github.com/dayspring-tech/neo4jmigrate/blob/v1.0.0/src/commands/apply.ts)_
+_See code: [src/commands/apply.ts](https://github.com/dayspring-tech/neo4jmigrate/blob/v1.0.1/src/commands/apply.ts)_
 
 ## `nmigrate help [COMMAND]`
 
@@ -85,5 +85,5 @@ OPTIONS
   -u, --username=username  [default: neo4j] neo4j user name
 ```
 
-_See code: [src/commands/status.ts](https://github.com/dayspring-tech/neo4jmigrate/blob/v1.0.0/src/commands/status.ts)_
+_See code: [src/commands/status.ts](https://github.com/dayspring-tech/neo4jmigrate/blob/v1.0.1/src/commands/status.ts)_
 <!-- commandsstop -->
