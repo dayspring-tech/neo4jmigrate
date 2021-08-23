@@ -27,7 +27,7 @@
     "/npm-shrinkwrap.json",
     "/oclif.manifest.json"
   ],
-  "homepage": "https://github.com/mdenson-dayspring/neo4jmigrate",
+  "homepage": "https://github.com/dayspring-tech/neo4jmigrate",
   "keywords": [
     "oclif"
   ],
@@ -40,7 +40,10 @@
       "@oclif/plugin-help"
     ]
   },
-  "repository": "mdenson-dayspring/neo4jmigrate",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/dayspring-tech/neo4jmigrate.git"
+  },
   "scripts": {
     "postpack": "rm -f oclif.manifest.json",
     "posttest": "eslint . --ext .ts --config .eslintrc",
