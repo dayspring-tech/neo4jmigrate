@@ -5,9 +5,9 @@ This is a tool for applying migration scripts to neo4j database.
 This tool depends on having the neo4j [cypher-shell](https://neo4j.com/docs/operations-manual/current/tools/cypher-shell/) installed.
 
 [![oclif](https://img.shields.io/badge/cli-oclif-brightgreen.svg)](https://oclif.io)
-[![Version](https://img.shields.io/npm/v/neo4jmigrate.svg)](https://nodei.co/npm/@dayspringpartners/neo4jmigrate)
-[![Downloads/week](https://img.shields.io/npm/dw/neo4jmigrate.svg)](https://nodei.co/npm/@dayspringpartners/neo4jmigrate)
-[![License](https://img.shields.io/npm/l/neo4jmigrate.svg)](https://github.com/dayspring-tech/neo4jmigrate/blob/master/package.json)
+[![Version](https://img.shields.io/npm/v/@dayspringpartners/neo4jmigrate.svg)](https://nodei.co/npm/@dayspringpartners/neo4jmigrate)
+[![Downloads/month](https://img.shields.io/npm/dm/@dayspringpartners/neo4jmigrate.svg)](https://nodei.co/npm/@dayspringpartners/neo4jmigrate)
+[![License](https://img.shields.io/npm/l/@dayspringpartners/neo4jmigrate.svg)](https://github.com/dayspring-tech/neo4jmigrate/blob/master/package.json)
 
 <!-- toc -->
 
