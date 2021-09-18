@@ -1,7 +1,7 @@
 import { Command, flags } from '@oclif/command';
-import { getMigrationList } from '../migrations';
-import { Neo4JService } from '../neo4j';
-import { execp } from '../utils';
+import { getMigrationList, Migration } from '../migrations';
+import { Neo4jConfig, Neo4JService } from '../neo4j';
+import { execp, serial } from '../utils';
 
 export default class Apply extends Command {
   static description = 'Apply unapplied migrations from path now.';
@@ -57,43 +57,48 @@ export default class Apply extends Command {
 
     const neo4j = new Neo4JService(neo4jConfig);
     try {
+      // migrations need to be run one at a time in order
       let list = await getMigrationList(neo4j, path);
-
-      return await Promise.all(list.map(async (migration) => {
-        if (!migration.applied) {
-          const cmd =
-            'cat ' +
-            migration.filename +
-            ' | cypher-shell -a ' +
-            neo4jConfig.url +
-            ' -u ' +
-            neo4jConfig.username +
-            ' -p ' +
-            neo4jConfig.password +
-            ' -d ' +
-            neo4jConfig.database;
-
-          await execp(cmd, {
-            stdout: process.stdout,
-            stderr: process.stderr,
-          });
-
-          const res = await neo4j.addLevel(migration.name);
-
-          let line = (migration.name + ' '.repeat(40)).substring(0, 40);
-          line = line + 'Applied changes';
-          console.log(line);
-          return 'Applied Changes';
-        } else {
-          let line = (migration.name + ' '.repeat(40)).substring(0, 40);
-          line = line + 'Nothing to do';
-          console.log(line);
-          return 'Nothing to do';
-        }
-      }));
+      // create an array of closures for each migration
+      const funcs = list.map((migration) => () => this.doMigration(migration, neo4j, neo4jConfig));
+      // execute the closures in sequence
+      await serial(funcs);
     } catch (err) {
     } finally {
       await neo4j.close();
+    }
+  }
+
+  async doMigration(migration: Migration, neo4j: Neo4JService, neo4jConfig: Neo4jConfig) {
+    if (!migration.applied) {
+      const cmd =
+        'cat ' +
+        migration.filename +
+        ' | cypher-shell -a ' +
+        neo4jConfig.url +
+        ' -u ' +
+        neo4jConfig.username +
+        ' -p ' +
+        neo4jConfig.password +
+        ' -d ' +
+        neo4jConfig.database;
+
+      await execp(cmd, {
+        stdout: process.stdout,
+        stderr: process.stderr,
+      });
+
+      await neo4j.addLevel(migration.name);
+
+      let line = (migration.name + ' '.repeat(40)).substring(0, 40);
+      line = line + 'Applied changes';
+      console.log(line);
+      return 'Applied Changes';
+    } else {
+      let line = (migration.name + ' '.repeat(40)).substring(0, 40);
+      line = line + 'Nothing to do';
+      console.log(line);
+      return 'Nothing to do';
     }
   }
 }
