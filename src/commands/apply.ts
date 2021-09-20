@@ -1,7 +1,7 @@
 import { Command, flags } from '@oclif/command';
 import { getMigrationList, Migration } from '../migrations';
 import { Neo4jConfig, Neo4JService } from '../neo4j';
-import { execp, serial } from '../utils';
+import { execp } from '../utils';
 
 export default class Apply extends Command {
   static description = 'Apply unapplied migrations from path now.';
@@ -58,7 +58,7 @@ export default class Apply extends Command {
     const neo4j = new Neo4JService(neo4jConfig);
     try {
       // migrations need to be run one at a time in order
-      let list = await getMigrationList(neo4j, path);
+      const list = await getMigrationList(neo4j, path);
       // create an array of closures for each migration
       const funcs = list.map((migration) => () => this.doMigration(migration, neo4j, neo4jConfig));
       // execute the closures in sequence
@@ -102,3 +102,15 @@ export default class Apply extends Command {
     }
   }
 }
+
+/*
+ * serial executes Promises sequentially.
+ * @param {funcs} An array of funcs that return promises.
+ * @example
+ * const urls = ['/url1', '/url2', '/url3']
+ * serial(urls.map(url => () => $.ajax(url)))
+ *     .then(console.log.bind(console))
+ */
+const serial = (funcs: Function[]) =>
+    funcs.reduce((promise, func) =>
+        promise.then(result => func().then(Array.prototype.concat.bind(result))), Promise.resolve([]))
